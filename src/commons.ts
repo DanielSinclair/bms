@@ -35,6 +35,17 @@ export type CommonOptions = {
   file?: string
 
   /**
+   * The path to the source code ZIP, relative from the current working directory (`process.cwd()`)
+   * You can use `{version}`, which will be replaced by the `version` entry from your `package.json` or versionFile, e.g. `some-source-v{version}.zip`
+   */
+  sourceZip?: string
+
+  /**
+   * Alias to sourceZip
+   */
+  sourceFile?: string
+
+  /**
    * The path to a json file which has a `version` field. Defaults to `package.json`
    */
   versionFile?: string

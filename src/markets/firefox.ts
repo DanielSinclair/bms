@@ -20,7 +20,7 @@ const market = BrowserName.Firefox
 
 const vLog = getVerboseLogger(market)
 
-async function submit({ extId, zip, dryRun, ...opts }: FirefoxOptions) {
+async function submit({ extId, zip, sourceZip, dryRun, ...opts }: FirefoxOptions) {
   const manifest = getManifestJson(zip)
 
   const id =
@@ -41,6 +41,7 @@ async function submit({ extId, zip, dryRun, ...opts }: FirefoxOptions) {
   try {
     await client.submit({
       filePath: zip,
+      sourcePath: sourceZip,
       version: manifest.version
     })
     logSuccessfullyPublished({ extId: id, market, zip })
@@ -53,6 +54,7 @@ async function submit({ extId, zip, dryRun, ...opts }: FirefoxOptions) {
 
 export async function submitFirefox(options: FirefoxOptions): Promise<boolean> {
   options.zip = getCorrectZip(options)
+  options.sourceZip = getCorrectZip({ zip: options.sourceZip, file: options.sourceFile, versionFile: options.versionFile })
 
   if (options.verbose) {
     enableVerboseLogging(market)

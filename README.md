@@ -89,6 +89,7 @@ submitFirefox({
   apiKey: "api_key",
   apiSecret: "api_secret",
   zip: "dist/some-zip-v{version}.zip",
+  sourceZip: "v{version}-source.zip"
   verbose: false
 })
 

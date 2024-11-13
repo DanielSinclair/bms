@@ -12,6 +12,8 @@ These properties are available to every client API calls:
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `zip`         | string   | Relative path from the root to the ZIP. You can use `{version}` template string to substitute the `version` entry from your `versionFile` |
 | `file`        | string?  | Alias to zip                                                                                                                              |
+| `sourceZip`   | string?  | Relative path from the root to the source code ZIP. You can use `{version}` template string like with `zip`                              |
+| `sourceFile`  | string?  | Alias to sourceZip                                                                                                                        |
 | `versionFile` | string?  | Relative path to a json file which has a `version` field. Defaults to `package.json`                                                      |
 | `verbose`     | boolean? | Enable verbose logging                                                                                                                    |
 | `note`        | string?  | Notes for certification, which will be visible to the extension reviewers (recommended for Edge)                                          |

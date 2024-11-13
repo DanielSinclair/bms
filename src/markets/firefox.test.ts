@@ -16,3 +16,18 @@ test("Firefox dry run successful", async () => {
     })
   ).toBeTruthy()
 })
+
+test("Firefox with source zip dry run successful", async () => {
+  const opt = JSON.parse(await fs.readFile("keys.json", "utf8"))
+    .firefox as FirefoxOptions
+
+  expect(
+    await submitFirefox({
+      verbose: true,
+      dryRun: true,
+      zip: "test.zip",
+      sourceZip: "test-source.zip",
+      ...opt
+    })
+  ).toBeTruthy()
+})
